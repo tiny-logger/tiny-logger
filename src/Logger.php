@@ -59,7 +59,7 @@ final class Logger
      */
     public static function setPath(string $path, ...$params): Logger
     {
-        self::new()->file_path = $params ? \sprintf($path, ...$params) : $path;
+        self::new()->file_path = $params ? sprintf($path, ...$params) : $path;
         return self::new();
     }
 
@@ -114,7 +114,7 @@ final class Logger
         $result = $self->prepareTextForLogging($text, $option);
 
         if ($file_path || $self->file_path) {
-            \file_put_contents($file_path ?? $self->file_path ?? '', $result, FILE_APPEND);
+            file_put_contents($file_path ?? $self->file_path ?? '', $result, FILE_APPEND);
         }
     }
 
@@ -139,8 +139,8 @@ final class Logger
             throw new Exception('File path for logging output is not specified');
         }
 
-        if (!\file_exists($this->file_path)) {
-            \file_put_contents($this->file_path, '');
+        if (!file_exists($this->file_path)) {
+            file_put_contents($this->file_path, '');
         }
     }
 

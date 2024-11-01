@@ -11,10 +11,16 @@
         "ternary_to_null_coalescing": true,
         "array_indentation": true,
         "trim_array_spaces": true,
+        "ordered_imports": {
+            "sort_algorithm": "alpha"
+        },
         "combine_consecutive_issets": true,
         "combine_consecutive_unsets": true,
         "no_multiline_whitespace_around_double_arrow": true,
-        "fully_qualified_strict_types": true,
+        "fully_qualified_strict_types": {
+            "leading_backslash_in_global_namespace": true,
+            "import_symbols": true
+        },
         "method_chaining_indentation": true,
         "php_unit_method_casing": {
             "case": "camel_case"

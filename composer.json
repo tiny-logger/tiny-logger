@@ -1,7 +1,7 @@
 {
     "name": "serhii/tiny-logger",
     "description": "Light weight composer package for file logging in PHP7.",
-    "homepage": "https://github.com/SerhiiCho/tiny-logger",
+    "homepage": "https://github.com/tiny-logger/tiny-logger",
     "keywords": ["logger", "library"],
     "type": "library",
     "require": {
@@ -13,16 +13,18 @@
     "require-dev": {
         "phpunit/phpunit": "^8.0",
         "symfony/var-dumper": "^4.2",
-        "phpstan/phpstan": "^1.8",
-        "squizlabs/php_codesniffer": "^4.0",
-        "sandfoxme/private-access": "^1.3",
-        "laravel/pint": "dev-main"
+        "phpstan/phpstan": "^1.10.57",
+        "squizlabs/php_codesniffer": "^3.7.2",
+        "sandfoxme/private-access": "^1.3.0",
+        "laravel/pint": "1.18.1"
     },
     "license": "MIT",
     "authors": [
         {
             "name": "SerhiiCho",
-            "email": "serhiicho@protonmail.com"
+            "email": "serhiicho@protonmail.com",
+            "homepage": "https://serhii.io",
+            "role": "Developer"
         }
     ],
     "autoload": {
@@ -38,5 +40,18 @@
             "Serhii\\Tests\\": "tests"
         }
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "scripts": {
+        "stan": "phpstan analyse",
+        "cs": "phpcs src logger.php --colors -p",
+        "test": "phpunit --colors",
+        "pint": "pint --test",
+        "check": [
+            "@stan",
+            "@cs",
+            "@test",
+            "@pint"
+        ]
+    }
 }

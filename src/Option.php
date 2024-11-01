@@ -20,8 +20,8 @@ final class Option
 
     public function getErrorType(): string
     {
-        foreach (\explode('|', $this->input_options) as $option) {
-            if (!\in_array($option, self::AVAILABLE_OPTIONS, true)) {
+        foreach (explode('|', $this->input_options) as $option) {
+            if (!in_array($option, self::AVAILABLE_OPTIONS, true)) {
                 return $option;
             }
         }
@@ -33,12 +33,12 @@ final class Option
     {
         $options = [];
 
-        foreach (\explode('|', $this->input_options) as $option) {
-            if (\in_array($option, self::AVAILABLE_OPTIONS, true)) {
+        foreach (explode('|', $this->input_options) as $option) {
+            if (in_array($option, self::AVAILABLE_OPTIONS, true)) {
                 $options[] = $option;
             }
         }
 
-        return \in_array($option_name, $options, true);
+        return in_array($option_name, $options, true);
     }
 }

@@ -29,12 +29,12 @@ final class Text
             return "{$e->getMessage()} in {$e->getFile()} at line: {$e->getLine()}\n{$trace}";
         }
 
-        if (\is_array($this->input_text) || \is_object($this->input_text)) {
-            $encoded = \json_encode($this->input_text, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-            return \is_string($encoded) ? $encoded : '';
+        if (is_array($this->input_text) || is_object($this->input_text)) {
+            $encoded = json_encode($this->input_text, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+            return is_string($encoded) ? $encoded : '';
         }
 
-        if (\is_float($this->input_text) || \is_int($this->input_text)) {
+        if (is_float($this->input_text) || is_int($this->input_text)) {
             return (string) $this->input_text;
         }
 
@@ -51,10 +51,10 @@ final class Text
 
     public function getTraceLine(): string
     {
-        $trace = \debug_backtrace()[2];
+        $trace = debug_backtrace()[2];
 
-        if (\preg_match('!/logger\.php!', $trace['file'] ?? '')) {
-            $trace = \debug_backtrace()[3];
+        if (preg_match('!/logger\.php!', $trace['file'] ?? '')) {
+            $trace = debug_backtrace()[3];
         }
 
         $line = $trace['line'] ?? '';
@@ -65,6 +65,6 @@ final class Text
 
     public function getDateBlock(?bool $timestamp = null): string
     {
-        return $timestamp ? (string) \time() : '[' . \date('Y-m-d H:i:s') . ']';
+        return $timestamp ? (string) time() : '[' . date('Y-m-d H:i:s') . ']';
     }
 }
