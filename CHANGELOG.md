@@ -3,6 +3,7 @@
 ## v2.1.5 (2024-11-01)
 - Updated `composer.json` file
 - Removed backslashes from PHP native functions
+- Moved commands from `Makefile` to `composer.json` file
 
 ## v2.1.4 (2023-11-14)
 - Added support for `PHP 8.3`

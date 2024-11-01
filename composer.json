@@ -41,5 +41,17 @@
         }
     },
     "minimum-stability": "stable",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "scripts": {
+        "stan": "phpstan analyse",
+        "cs": "phpcs src logger.php --colors -p",
+        "test": "phpunit --colors",
+        "pint": "pint --test",
+        "check": [
+            "@stan",
+            "@cs",
+            "@test",
+            "@pint"
+        ]
+    }
 }
