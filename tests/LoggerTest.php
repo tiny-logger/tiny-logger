@@ -33,7 +33,7 @@ class LoggerTest extends TestCase
 
     private function removeFile(string $file_path): void
     {
-        \file_exists($file_path) ? \unlink($file_path) : null;
+        file_exists($file_path) ? unlink($file_path) : null;
     }
 
 
@@ -49,7 +49,7 @@ class LoggerTest extends TestCase
     {
         Logger::setPath('different.log')->write('Some log message goes here');
         $this->assertFileExists('different.log');
-        \file_exists('different.log') ? \unlink('different.log') : null;
+        file_exists('different.log') ? unlink('different.log') : null;
     }
 
 
@@ -57,7 +57,7 @@ class LoggerTest extends TestCase
     {
         Logger::setPath('%serent%s', 'diff', '.log')->write('Some log message goes here');
         $this->assertFileExists('different.log');
-        \file_exists('different.log') ? \unlink('different.log') : null;
+        file_exists('different.log') ? unlink('different.log') : null;
     }
 
 
@@ -65,7 +65,7 @@ class LoggerTest extends TestCase
     {
         Logger::new()->write('Nice text is here');
         Logger::new()->write(null);
-        $log_file_content = \file_get_contents($this->file_path);
+        $log_file_content = file_get_contents($this->file_path);
         $this->assertStringContainsString('] error: Nice text is here', $log_file_content);
         $this->assertStringContainsString('null', $log_file_content);
     }
@@ -74,7 +74,7 @@ class LoggerTest extends TestCase
     public function testWriteMethodWritesGivenTextToALogFileWithDifferentType(): void
     {
         Logger::new()->write('Nice text is here', 'debug');
-        $log_file_content = \file_get_contents($this->file_path);
+        $log_file_content = file_get_contents($this->file_path);
         $this->assertStringContainsString('] debug: Nice text is here', $log_file_content);
     }
 
@@ -84,9 +84,9 @@ class LoggerTest extends TestCase
         $array = ['hello' => 'world'];
         Logger::new()->write($array, 'info');
 
-        $log_file_content = \file_get_contents($this->file_path);
+        $log_file_content = file_get_contents($this->file_path);
 
-        $json = \json_encode($array, JSON_PRETTY_PRINT);
+        $json = json_encode($array, JSON_PRETTY_PRINT);
         $this->assertStringContainsString($json, $log_file_content);
     }
 
@@ -96,9 +96,9 @@ class LoggerTest extends TestCase
         $obj = (object) ['hello' => 'world'];
         Logger::new()->write($obj, 'info');
 
-        $log_file_content = \file_get_contents($this->file_path);
+        $log_file_content = file_get_contents($this->file_path);
 
-        $json = \json_encode($obj, JSON_PRETTY_PRINT);
+        $json = json_encode($obj, JSON_PRETTY_PRINT);
         $this->assertStringContainsString($json, $log_file_content);
     }
 
@@ -138,7 +138,7 @@ class LoggerTest extends TestCase
             Logger::new()->write($e);
         }
 
-        $log_file_content = \file_get_contents($this->file_path);
+        $log_file_content = file_get_contents($this->file_path);
 
         $this->assertStringContainsString('This is an exception', $log_file_content);
     }
@@ -152,7 +152,7 @@ class LoggerTest extends TestCase
             Logger::new()->write($e);
         }
 
-        $log_file_content = \file_get_contents($this->file_path);
+        $log_file_content = file_get_contents($this->file_path);
 
         $this->assertStringContainsString('This is an error', $log_file_content);
     }
@@ -166,7 +166,7 @@ class LoggerTest extends TestCase
             Logger::new()->write($e);
         }
 
-        $this->assertStringContainsString('This is a parse error', \file_get_contents($this->file_path));
+        $this->assertStringContainsString('This is a parse error', file_get_contents($this->file_path));
     }
 
 
@@ -178,21 +178,21 @@ class LoggerTest extends TestCase
             Logger::new()->write($e);
         }
 
-        $this->assertStringContainsString('This is a type error', \file_get_contents($this->file_path));
+        $this->assertStringContainsString('This is a type error', file_get_contents($this->file_path));
     }
 
 
     public function testWriteMethodCanExceptBooleanTrue(): void
     {
         Logger::new()->write(true, 'info');
-        $this->assertStringContainsString('true', \file_get_contents($this->file_path));
+        $this->assertStringContainsString('true', file_get_contents($this->file_path));
     }
 
 
     public function testWriteMethodCanExceptBooleanFalse(): void
     {
         Logger::new()->write(false, 'info');
-        $log_file_content = \file_get_contents($this->file_path);
+        $log_file_content = file_get_contents($this->file_path);
         $this->assertStringContainsString('false', $log_file_content);
     }
 
@@ -200,7 +200,7 @@ class LoggerTest extends TestCase
     public function testWriteMethodCanExceptNull(): void
     {
         Logger::new()->write(null, 'info');
-        $log_file_content = \file_get_contents($this->file_path);
+        $log_file_content = file_get_contents($this->file_path);
         $this->assertStringContainsString('null', $log_file_content);
     }
 
