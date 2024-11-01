@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use Serhii\TinyLogger\Logger;
 use Exception;
+use Serhii\TinyLogger\Logger;
 
 if (!function_exists('tiny_log')) {
     /**

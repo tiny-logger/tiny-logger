@@ -9,12 +9,13 @@ use Error;
 use Exception;
 use ParseError;
 use PHPUnit\Framework\TestCase;
+
+use function SandFox\Debug\call_private_method;
+
 use Serhii\TinyLogger\Logger;
 use Serhii\TinyLogger\Option;
 use Serhii\TinyLogger\Text;
 use TypeError;
-
-use function SandFox\Debug\call_private_method;
 
 class LoggerTest extends TestCase
 {
