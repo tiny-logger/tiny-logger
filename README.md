@@ -1,4 +1,4 @@
-[![Tiny Logger](https://github.com/tiny-logger/tiny-logger/actions/workflows/php.yml/badge.svg?branch=main)](https://github.com/tiny-logger/tiny-logger/actions/workflows/php.yml)
+[![Tiny Logger](https://github.com/tiny-logger/tiny-logger/actions/workflows/php.yml/badge.svg?branch=master)](https://github.com/tiny-logger/tiny-logger/actions/workflows/php.yml)
 [![Latest Stable Version](https://poser.pugx.org/serhii/tiny-logger/v/stable)](https://packagist.org/packages/serhii/tiny-logger)
 [![Total Downloads](https://poser.pugx.org/serhii/tiny-logger/downloads)](https://packagist.org/packages/serhii/tiny-logger)
 [![License](https://poser.pugx.org/serhii/tiny-logger/license)](https://packagist.org/packages/serhii/tiny-logger)
