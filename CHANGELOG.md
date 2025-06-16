@@ -1,5 +1,8 @@
 # Release Notes
 
+## v2.1.6 (2025-06-16)
+- Remove `use Exception` from `logger.php`. It was causing a PHP warning
+
 ## v2.1.5 (2024-11-01)
 - Updated `composer.json` file
 - Removed backslashes from PHP native functions
