@@ -4,14 +4,13 @@ declare(strict_types=1);
 
 namespace Serhii\Tests;
 
+use function Arokettu\Debug\call_private_method;
+
 use Curl\Curl;
 use Error;
 use Exception;
 use ParseError;
 use PHPUnit\Framework\TestCase;
-
-use function SandFox\Debug\call_private_method;
-
 use Serhii\TinyLogger\Logger;
 use Serhii\TinyLogger\Option;
 use Serhii\TinyLogger\Text;

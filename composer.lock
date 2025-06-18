@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6a0f2f04ff3ee500b03fe1991b3f4573",
+    "content-hash": "b518c937290804a51944d24d79a75e4c",
     "packages": [
         {
             "name": "curl/curl",
@@ -66,6 +66,61 @@
         }
     ],
     "packages-dev": [
+        {
+            "name": "arokettu/private-access",
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/arokettu/php-private-access.git",
+                "reference": "b0651d95b5e76c450c857deb58056cc60d697bef"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/arokettu/php-private-access/zipball/b0651d95b5e76c450c857deb58056cc60d697bef",
+                "reference": "b0651d95b5e76c450c857deb58056cc60d697bef",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">= 5.6"
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "*",
+                "phpcompatibility/php-compatibility": "*",
+                "phpunit/phpunit": "^4.8.36 | >= 6.0 < 10",
+                "psy/psysh": "*",
+                "squizlabs/php_codesniffer": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anton Smirnov",
+                    "email": "sandfox@sandfox.me",
+                    "homepage": "https://sandfox.me/",
+                    "role": "developer"
+                }
+            ],
+            "description": "Simple and fast methods to read private properties and call private methods",
+            "homepage": "https://sandfox.dev/php/private-access.html",
+            "keywords": [
+                "debug",
+                "dev"
+            ],
+            "support": {
+                "docs": "https://php-private-access.readthedocs.io/",
+                "issues": "https://gitlab.com/sandfox/php-private-access/-/issues",
+                "source": "https://gitlab.com/sandfox/php-private-access"
+            },
+            "time": "2023-01-14T12:47:28+00:00"
+        },
         {
             "name": "doctrine/instantiator",
             "version": "1.5.0",
@@ -842,52 +897,6 @@
             "time": "2025-05-02T06:33:00+00:00"
         },
         {
-            "name": "sandfoxme/private-access",
-            "version": "1.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/arokettu/php-private-access-legacy.git",
-                "reference": "2df865f9fee7bd3f696705efcce697f038c471ea"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/arokettu/php-private-access-legacy/zipball/2df865f9fee7bd3f696705efcce697f038c471ea",
-                "reference": "2df865f9fee7bd3f696705efcce697f038c471ea",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">= 5.4.6"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^4.8",
-                "psy/psysh": "*"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "src/functions.php",
-                    "legacy.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Anton Smirnov",
-                    "email": "sandfox@sandfox.me"
-                }
-            ],
-            "description": "Simple and fast methods to read private properties and call private methods",
-            "support": {
-                "issues": "https://github.com/arokettu/php-private-access-legacy/issues",
-                "source": "https://github.com/arokettu/php-private-access-legacy/tree/1.3.0"
-            },
-            "abandoned": "arokettu/private-access",
-            "time": "2019-04-08T23:44:57+00:00"
-        },
-        {
             "name": "sebastian/code-unit-reverse-lookup",
             "version": "1.0.3",
             "source": {
@@ -1617,16 +1626,16 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "3.13.1",
+            "version": "3.13.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCSStandards/PHP_CodeSniffer.git",
-                "reference": "1b71b4dd7e7ef651ac749cea67e513c0c832f4bd"
+                "reference": "5b5e3821314f947dd040c70f7992a64eac89025c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/1b71b4dd7e7ef651ac749cea67e513c0c832f4bd",
-                "reference": "1b71b4dd7e7ef651ac749cea67e513c0c832f4bd",
+                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/5b5e3821314f947dd040c70f7992a64eac89025c",
+                "reference": "5b5e3821314f947dd040c70f7992a64eac89025c",
                 "shasum": ""
             },
             "require": {
@@ -1697,7 +1706,7 @@
                     "type": "thanks_dev"
                 }
             ],
-            "time": "2025-06-12T15:04:34+00:00"
+            "time": "2025-06-17T22:17:01+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",

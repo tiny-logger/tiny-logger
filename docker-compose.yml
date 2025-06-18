@@ -1,0 +1,13 @@
+name: tiny-logger
+
+services:
+  app:
+    build:
+      context: .
+    image: tiny-logger
+    volumes:
+      - .:/app
+    environment:
+      - TERM=xterm-256color
+    tty: true
+    stdin_open: true

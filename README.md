@@ -9,7 +9,6 @@ Lightweight composer package for file logging with ability to send errors with w
 [Usage example](https://replit.com/@SerhiiCho/Usage-of-tiny-logger-package#public/index.php)
 
 ## Set file path
-
 For setting up the path globally for all the log files you can call `setPath` method in your bootstrap file.
 
 ```php
@@ -22,7 +21,6 @@ Logger::setPath('logs/%s.log', 'errors'); // sprintf format
 > NOTE: If you want to use logger in a cron scripts or something like WordPress hook, you need to call `setPath()` at the very first step of the script execution, it means that your project might have multiple places where you need to set path for your logs. If you don't want to call `setPath()` you can just pass the path to a `tiny_log()` function as a third argument. _See an example in the Usage section._
 
 ## Supported PHP versions
-
 - ✅ 7.2
 - ✅ 7.3
 - ✅ 7.4
@@ -30,9 +28,9 @@ Logger::setPath('logs/%s.log', 'errors'); // sprintf format
 - ✅ 8.1
 - ✅ 8.2
 - ✅ 8.3
+- ✅ 8.4
 
 ## Usage
-
 This package comes with a function `tiny_log()` where second and third arguments are not required.
 
 ```php
@@ -54,10 +52,9 @@ use \Serhii\TinyLogger\Logger;
 Logger::new()->error('Some error message');
 Logger::new()->info('Some info message');
 Logger::new()->debug('Some error message');
-````
+```
 
 ## Options
-
 For using one of the available options you can optionally pass certain flag to `tiny_log()` function as the second argument. If you also need to pass error type just separate them with the pipe `|` character. See the example with option `pos`:
 
 ```php
@@ -67,7 +64,6 @@ tiny_log('Some error message', 'pos|info'); // 'pos' option with error type 'inf
 ```
 
 #### Available options
-
 - `pos` - Show position of the logger. In which file and on what line number it is. It is useful when you're debugging, to not forget where you put your logger. See the example of output:
 
 ```text
@@ -76,7 +72,6 @@ tiny_log('Some error message', 'pos|info'); // 'pos' option with error type 'inf
 ```
 
 ## Send logs with POST request
-
 Tiny logger allows you to send logs as a json object on a specific endpoint. To enable this option you need to call `enablePostRequest` method on `Logger` class. To disable POST request use `disablePostRequest` method.
 
 ```php
@@ -124,9 +119,25 @@ Each JsonFieldValue constant will be replaced with its value. For example JsonFi
 > NOTE: If you want to use logger in a cron scripts or something like WordPress hook, you need to call `enablePostRequest` at the very first step of the script execution.
 
 ## Get started
-
 To install all php dependencies you need to have [Composer PHP package manager](https://getcomposer.org) installed on your machine. Then you need to run the command below in your root directory of the project.
 
 ```bash
 composer require serhii/tiny-logger
+```
+
+## Development
+### Without Docker
+You'll need to have Composer and PHP installed on your machine
+
+### Docker
+#### Build an image
+To build an image, navigate to the root of tiny-logger project that contains `Dockerfile` and run this command:
+```bash
+docker compose build app
+```
+
+#### Run the container
+To build an image, navigate to the root of tiny-logger project that contains `Dockerfile` and run this command:
+```bash
+docker compose run --rm app
 ```
