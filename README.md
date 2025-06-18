@@ -126,6 +126,9 @@ composer require serhii/tiny-logger
 ```
 
 ## Development
+### Without Docker
+You'll need to have Composer and PHP installed on your machine
+
 ### Docker
 #### Build an image
 To build an image, navigate to the root of tiny-logger project that contains `Dockerfile` and run this command:
@@ -138,6 +141,3 @@ To build an image, navigate to the root of tiny-logger project that contains `Do
 ```bash
 docker compose run --rm app
 ```
-
-### Without Docker
-You'll need to have Composer and PHP installed on your machine
