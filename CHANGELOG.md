@@ -1,7 +1,7 @@
 # Release Notes
 
 ## v2.2.0 (2025-06-18)
-- Added Docker to the project
+- Added container engine support to the project
 - Replace abandoned dev dependency
 
 ## v2.1.6 (2025-06-16)

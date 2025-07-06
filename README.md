@@ -125,19 +125,36 @@ To install all php dependencies you need to have [Composer PHP package manager](
 composer require serhii/tiny-logger
 ```
 
-## Development
-### Without Docker
-You'll need to have Composer and PHP installed on your machine
+## Contribute
+### With a Container Engine
+If you use a container engine like [🦦 Podman](https://podman.io/) or [🐳 Docker](https://app.docker.com/), here are the steps that you can make:
 
-### With Docker
-#### Build an image
-To build an image, navigate to the root of the project that contains `Dockerfile` and run this command:
+#### Build an Image
+To build an image, navigate to the root of the project and run this Docker command:
 ```bash
 docker compose build app
 ```
+For Podman, run this:
+```bash
+podman-compose build app
+```
 
-#### Run the container
-To run the container, navigate to the root of the project that contains `Dockerfile` and run this command:
+#### Run the Container
+To run the container, navigate to the root of the project and run this Docker command:
 ```bash
 docker compose run --rm app
+```
+For Podman, run this:
+```bash
+podman-compose run --rm app
+```
+
+#### Destroy the Container
+You can cleanup after working on a project by destroying things like networks with this Docker command:
+```bash
+docker compose down
+```
+For Podman, run this:
+```bash
+podman-compose down
 ```
