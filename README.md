@@ -127,34 +127,23 @@ composer require serhii/tiny-logger
 
 ## Contribute
 ### With a Container Engine
-If you use a container engine like [🦦 Podman](https://podman.io/) or [🐳 Docker](https://app.docker.com/), here are the steps that you can make:
+> [!NOTE]
+> If you use [🐳 Docker](https://app.docker.com/) instead of [🦦 Podman](https://podman.io/), just replace `podman-compose` with `docker compose`, and `podman` with `docker` in code examples below.
 
 #### Build an Image
-To build an image, navigate to the root of the project and run this Docker command:
-```bash
-docker compose build app
-```
-For Podman, run this:
+To build an image, navigate to the root of the project and run this command:
 ```bash
 podman-compose build app
 ```
 
 #### Run the Container
-To run the container, navigate to the root of the project and run this Docker command:
-```bash
-docker compose run --rm app
-```
-For Podman, run this:
+To run the container, navigate to the root of the project and run this command:
 ```bash
 podman-compose run --rm app
 ```
 
 #### Destroy the Container
-You can cleanup after working on a project by destroying things like networks with this Docker command:
-```bash
-docker compose down
-```
-For Podman, run this:
+You can cleanup after working on a project by destroying things like networks with this command:
 ```bash
 podman-compose down
 ```
