@@ -29,6 +29,7 @@ Logger::setPath('logs/%s.log', 'errors'); // sprintf format
 - ✅ 8.2
 - ✅ 8.3
 - ✅ 8.4
+- ✅ 8.5
 
 ## Usage
 This package comes with a function `tiny_log()` where second and third arguments are not required.

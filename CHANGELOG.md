@@ -1,5 +1,8 @@
 # Release Notes
 
+## v2.3.0 (2025-09-27)
+- Added support for `PHP 8.5`
+
 ## v2.2.0 (2025-06-18)
 - Added container engine support to the project
 - Replace abandoned dev dependency
