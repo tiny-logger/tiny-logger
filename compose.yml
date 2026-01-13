@@ -2,9 +2,7 @@ name: tiny-logger
 
 services:
     app:
-        build:
-            context: .
-            dockerfile: Containerfile
+        build: .
         image: tiny-logger
         volumes:
             - .:/app:z
