@@ -156,18 +156,30 @@ docker compose build
 
 #### Run the Container
 
-To run the container, navigate to the root of the project and run this command.
-
 With Podman:
 
 ```bash
-podman-compose run --rm app
+podman-compose up -d
 ```
 
 With Docker:
 
 ```bash
-docker compose run --rm app
+docker compose up -d
+```
+
+#### Enter the Container
+
+With Podman:
+
+```bash
+podman-compose exec app bash
+```
+
+With Docker:
+
+```bash
+docker compose exec app bash
 ```
 
 #### Destroy the Container

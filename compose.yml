@@ -1,12 +1,12 @@
 name: tiny-logger
 
 services:
-    app:
-        build: .
-        image: tiny-logger
-        volumes:
-            - .:/app:z
-        environment:
-            - TERM=xterm-256color
-        tty: true
-        stdin_open: true
+  app:
+    build: .
+    image: tiny-logger
+    volumes:
+      - .:/var/www/html:z
+    environment:
+      - TERM=xterm-256color
+    tty: true
+    stdin_open: true
