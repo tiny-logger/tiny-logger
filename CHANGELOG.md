@@ -1,5 +1,9 @@
 # Release Notes
 
+## v3.0.0 (2026-08-08)
+
+- Dropped support for php 7.2, 7.3, 7.4
+
 ## v2.3.1 (2026-08-08)
 
 - Moved repo from GitHub to Codeberg
