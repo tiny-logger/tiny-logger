@@ -54,7 +54,7 @@ jobs:
           mv composer.phar /usr/bin/composer
 
       - name: Checkout
-        uses: actions@checkout@v4
+        uses: actions/checkout@v4
 
       - name: Install composer dependencies
         run: |
@@ -62,5 +62,4 @@ jobs:
           composer install --prefer-dist --no-progress --no-suggest
 
       - name: Run tests and checks
-        run: |
-          composer check
+        run: composer check
