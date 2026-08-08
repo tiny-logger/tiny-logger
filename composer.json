@@ -1,7 +1,7 @@
 {
     "name": "serhii/tiny-logger",
     "description": "Light weight composer package for file logging in PHP7.",
-    "homepage": "https://github.com/tiny-logger/tiny-logger",
+    "homepage": "https://codeberg.org/tiny-logger/tiny-logger",
     "keywords": ["logger", "library"],
     "type": "library",
     "require": {
