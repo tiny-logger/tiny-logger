@@ -1,7 +1,6 @@
 [![Latest Stable Version](https://poser.pugx.org/serhii/tiny-logger/v/stable)](https://packagist.org/packages/serhii/tiny-logger)
 [![Total Downloads](https://poser.pugx.org/serhii/tiny-logger/downloads)](https://packagist.org/packages/serhii/tiny-logger)
 [![License](https://poser.pugx.org/serhii/tiny-logger/license)](https://packagist.org/packages/serhii/tiny-logger)
-<a href="https://php.net/" rel="nofollow"><img src="https://img.shields.io/badge/php-%3E%3D%207.2-8892BF.svg" alt="Minimum PHP Version" style="max-width:100%;"></a>
 
 Lightweight composer package for file logging with ability to send errors with webhook.
 
@@ -22,9 +21,6 @@ Logger::setPath('logs/%s.log', 'errors'); // sprintf format
 
 ## Supported PHP versions
 
-- ✅ 7.2
-- ✅ 7.3
-- ✅ 7.4
 - ✅ 8.0
 - ✅ 8.1
 - ✅ 8.2

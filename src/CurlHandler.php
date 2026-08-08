@@ -8,42 +8,27 @@ use Curl\Curl;
 
 class CurlHandler
 {
-    /**
-     * @var string
-     */
-    private $url;
+    private string $url;
 
     /**
      * @var array<int, mixed>|null
      */
-    private $json;
+    private ?array $json;
+
+    private Text $text;
+    private Option $option;
+    private Curl $curl;
 
     /**
-     * @var Text
-     */
-    private $text;
-
-    /**
-     * @var Option
-     */
-    private $option;
-
-    /**
-     * @var Curl
-     */
-    private $curl;
-
-    /**
-     * CurlHandler constructor.
-     *
-     * @param string $url
      * @param array<int, mixed>|null $json
-     * @param Text $text
-     * @param Option $option
-     * @param Curl $curl
      */
-    public function __construct(string $url, ?array $json, Text $text, Option $option, Curl $curl)
-    {
+    public function __construct(
+        string $url,
+        array|null $json,
+        Text $text,
+        Option $option,
+        Curl $curl,
+    ) {
         $this->url = $url;
         $this->json = $json;
         $this->text = $text;
