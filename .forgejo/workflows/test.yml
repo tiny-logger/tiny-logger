@@ -13,14 +13,23 @@ jobs:
     runs-on: burn
     strategy:
       matrix:
-        #        php_version: [8.0, 8.1, 8.2, 8.3, 8.4, 8.5]
-        php_version: [8.0]
+        #php_version: [8.1, 8.2, 8.3, 8.4, 8.5]
+        php_version: [8.1]
 
     steps:
       - name: Install Linux dependencies
         run: |
           apt update
-          apt install -y lsb-release ca-certificates curl composer
+          apt install -y \
+            lsb-release \
+            ca-certificates \
+            curl \
+            git \
+            zip \
+            unzip
+
+      - name: Install PHP
+        run: |
           curl -sSLo /tmp/debsuryorg-archive-keyring.deb https://packages.sury.org/debsuryorg-archive-keyring.deb
           dpkg -i /tmp/debsuryorg-archive-keyring.deb
           tee /etc/apt/sources.list.d/php.sources <<EOF
@@ -34,18 +43,26 @@ jobs:
           apt install -y \
             php${{ matrix.php_version }} \
             php${{ matrix.php_version }}-curl \
-            php${{ matrix.php_version }}-xml
+            php${{ matrix.php_version }}-xml \
+            php${{ matrix.php_version }}-mbstring
 
-      - name: Checkout
+      - name: Install composer
+        run: |
+          php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+          php composer-setup.php
+          php -r "unlink('composer-setup.php');"
+          mv composer.phar /usr/bin/composer
+
+      - name: Clone repository
         run: |
           git clone https://codeberg.org/tiny-logger/tiny-logger.git
           cd tiny-logger
 
-      - name: Validate composer.json
-        run: composer validate
-
       - name: Install composer dependencies
-        run: composer install --prefer-dist --no-progress --no-suggest
+        run: |
+          composer validate
+          composer install --prefer-dist --no-progress --no-suggest
 
       - name: Run tests and checks
-        run: composer check
+        run: |
+          composer check

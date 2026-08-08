@@ -39,7 +39,7 @@ class LoggerTest extends TestCase
 
     public function testWriteMethodCreatesLogFile(): void
     {
-        $this->assertFileNotExists($this->file_path);
+        $this->assertFileDoesNotExist($this->file_path);
         Logger::new()->write('Some log message goes here');
         $this->assertFileExists($this->file_path);
     }
@@ -105,7 +105,7 @@ class LoggerTest extends TestCase
 
     public function testFunctionCreatesLogFile(): void
     {
-        $this->assertFileNotExists($this->file_path);
+        $this->assertFileDoesNotExist($this->file_path);
         tiny_log('Some log message goes here');
         $this->assertFileExists($this->file_path);
     }
@@ -113,7 +113,7 @@ class LoggerTest extends TestCase
 
     public function testLoggerHasMethodHelpers(): void
     {
-        $this->assertFileNotExists($this->file_path);
+        $this->assertFileDoesNotExist($this->file_path);
         Logger::new()->error('Some log message goes here');
         $this->assertFileExists($this->file_path);
 
