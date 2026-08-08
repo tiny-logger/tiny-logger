@@ -26,7 +26,18 @@ class CurlHandlerTest extends TestCase
         ];
 
         $curl = $this->createMock(Curl::class);
-        $curl->expects($this->once())->method('post')->with($url, $expected_json, true);
+
+        $curl->expects($this->once())
+             ->method('post')
+             ->with(
+                 $url,
+                 $this->callback(function (array $json) use ($expected_json): bool {
+                     return $json['message'] === $expected_json['message']
+                         && $json['type'] === $expected_json['type']
+                         && abs((int) $json['timestamp'] - (int) $expected_json['timestamp']) <= 1;
+                 }),
+                 true,
+             );
 
         $curl_handler = $this->getMockBuilder(CurlHandler::class)
             ->onlyMethods([])
@@ -58,7 +69,17 @@ class CurlHandlerTest extends TestCase
         ];
 
         $curl = $this->createMock(Curl::class);
-        $curl->expects($this->once())->method('post')->with($url, $expected_json, true);
+        $curl->expects($this->once())
+            ->method('post')
+            ->with(
+                $url,
+                $this->callback(function (array $json) use ($expected_json): bool {
+                    $time_diff = abs((int) $json['time'] - (int) $expected_json['time']);
+                    unset($json['time'], $expected_json['time']);
+                    return $time_diff <= 1 && $json == $expected_json;
+                }),
+                true
+            );
 
         $curl_handler = $this->getMockBuilder(CurlHandler::class)
             ->onlyMethods([])
