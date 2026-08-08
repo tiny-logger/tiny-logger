@@ -9,14 +9,22 @@ use Curl\Curl;
 class CurlHandler
 {
     private string $url;
-    private array|null $json;
+
+    /**
+     * @var array<int, mixed>|null
+     */
+    private ?array $json;
+
     private Text $text;
     private Option $option;
     private Curl $curl;
 
+    /**
+     * @param array<int, mixed>|null $json
+     */
     public function __construct(
         string $url,
-        ?array $json,
+        array|null $json,
         Text $text,
         Option $option,
         Curl $curl,

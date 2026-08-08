@@ -9,10 +9,15 @@ use Exception;
 
 final class Logger
 {
-    private string|null $file_path;
-    private array|null $post_request_json;
-    private string|null $post_request_url;
-    private self|null static $instance;
+    private ?string $file_path = null;
+
+    /**
+     * @var array<int, mixed>|null
+     */
+    private ?array $post_request_json = null;
+
+    private ?string $post_request_url = null;
+    private static ?self $instance = null;
 
     private function __construct()
     {
