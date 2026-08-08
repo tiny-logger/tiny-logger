@@ -53,10 +53,8 @@ jobs:
           php -r "unlink('composer-setup.php');"
           mv composer.phar /usr/bin/composer
 
-      - name: Clone repository
-        run: |
-          git clone https://codeberg.org/tiny-logger/tiny-logger.git
-          cd tiny-logger
+      - name: Checkout
+        uses: actions@checkout@v4
 
       - name: Install composer dependencies
         run: |
