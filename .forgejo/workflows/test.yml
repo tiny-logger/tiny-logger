@@ -1,0 +1,46 @@
+name: Tiny Logger
+
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: burn
+    strategy:
+      matrix:
+        #        php_version: ['7.2', '7.3', '7.4', '8.0', '8.1', '8.2', '8.3', '8.4', '8.5']
+        php_version: ["7.2"]
+
+    steps:
+      - name: Install Linux dependencies ⏬
+        run: |
+          apt update
+          apt install -y lsb-release ca-certificates curl
+          curl -sSLo /tmp/debsuryorg-archive-keyring.deb https://packages.sury.org/debsuryorg-archive-keyring.deb
+          dpkg -i /tmp/debsuryorg-archive-keyring.deb
+          tee /etc/apt/sources.list.d/php.sources <<EOF
+          Types: deb
+          URIs: https://packages.sury.org/php/
+          Suites: $(lsb_release -sc)
+          Components: main
+          Signed-By: /usr/share/keyrings/debsuryorg-archive-keyring.gpg
+          EOF
+          apt update
+          apt install -y php${{ matrix.php_version }} composer
+
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+
+      - name: Validate composer.json
+        run: composer validate
+
+      - name: Install composer dependencies
+        run: composer install --prefer-dist --no-progress --no-suggest
+
+      - name: Run tests and checks
+        run: composer check
