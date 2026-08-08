@@ -2,11 +2,9 @@ name: Tiny Logger
 
 on:
   pull_request:
-    branches:
-      - master
+    branches: [master]
   push:
-    branches:
-      - master
+    branches: [master]
 
 jobs:
   build:
