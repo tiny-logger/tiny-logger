@@ -8,10 +8,7 @@ final class Option
 {
     public const AVAILABLE_OPTIONS = ['pos'];
 
-    /**
-     * @var string
-     */
-    private $input_options;
+    private string $input_options;
 
     public function __construct(string $input_options)
     {

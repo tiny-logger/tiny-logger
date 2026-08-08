@@ -9,25 +9,10 @@ use Exception;
 
 final class Logger
 {
-    /**
-     * @var string|null
-     */
-    private $file_path;
-
-    /**
-     * @var array<int, mixed>|null
-     */
-    private $post_request_json;
-
-    /**
-     * @var string|null
-     */
-    private $post_request_url;
-
-    /**
-     * @var self|null
-     */
-    private static $instance;
+    private string|null $file_path;
+    private array|null $post_request_json;
+    private string|null $post_request_url;
+    private self|null static $instance;
 
     private function __construct()
     {
@@ -37,7 +22,6 @@ final class Logger
      * Get singleton instance of the class.
      *
      * @see https://en.wikipedia.org/wiki/Singleton_pattern
-     * @return self
      */
     public static function new(): self
     {
@@ -54,8 +38,6 @@ final class Logger
      * setPath('%s/storage/logs/logs.log', '/var/www/html')
 
      * @param mixed ...$params
-     *
-     * @return Logger
      */
     public static function setPath(string $path, ...$params): Logger
     {
