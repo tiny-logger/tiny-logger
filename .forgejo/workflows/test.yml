@@ -14,41 +14,10 @@ jobs:
         php_version: [8.1, 8.2, 8.3, 8.4, 8.5]
 
     steps:
-      - name: Install Linux dependencies
-        run: |
-          apt update
-          apt install -y \
-            lsb-release \
-            ca-certificates \
-            curl \
-            git \
-            zip \
-            unzip
-
       - name: Install PHP
-        run: |
-          curl -sSLo /tmp/debsuryorg-archive-keyring.deb https://packages.sury.org/debsuryorg-archive-keyring.deb
-          dpkg -i /tmp/debsuryorg-archive-keyring.deb
-          tee /etc/apt/sources.list.d/php.sources <<EOF
-          Types: deb
-          URIs: https://packages.sury.org/php/
-          Suites: $(lsb_release -sc)
-          Components: main
-          Signed-By: /usr/share/keyrings/debsuryorg-archive-keyring.gpg
-          EOF
-          apt update
-          apt install -y \
-            php${{ matrix.php_version }} \
-            php${{ matrix.php_version }}-curl \
-            php${{ matrix.php_version }}-xml \
-            php${{ matrix.php_version }}-mbstring
-
-      - name: Install composer
-        run: |
-          php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-          php composer-setup.php
-          php -r "unlink('composer-setup.php');"
-          mv composer.phar /usr/bin/composer
+        uses: https://codeberg.org/act/install-php@v1
+        with:
+          php-version: ${{ matrix.php-version }}
 
       - name: Checkout
         uses: actions/checkout@v4
