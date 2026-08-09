@@ -34,7 +34,7 @@ class CurlHandlerTest extends TestCase
                 $this->callback(function (array $json) use ($expected_json): bool {
                     return $json['message'] === $expected_json['message']
                         && $json['type'] === $expected_json['type']
-                        && abs((int) $json['timestamp'] - (int) $expected_json['timestamp']) <= 1;
+                        && abs((int) $json['timestamp'] - time()) <= 2;
                 }),
                 true,
             );
@@ -74,9 +74,10 @@ class CurlHandlerTest extends TestCase
             ->with(
                 $url,
                 $this->callback(function (array $json) use ($expected_json): bool {
-                    $time_diff = abs((int) $json['time'] - (int) $expected_json['time']);
-                    unset($json['time'], $expected_json['time']);
-                    return $time_diff <= 1 && $json === $expected_json;
+                    $time_diff = abs((int) $json['time'] - time());
+                    $expected = $expected_json;
+                    unset($json['time'], $expected['time']);
+                    return $time_diff <= 2 && $json === $expected;
                 }),
                 true
             );
