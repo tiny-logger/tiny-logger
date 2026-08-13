@@ -9,7 +9,7 @@ on:
 jobs:
   run-checks:
     runs-on: burn
-    name: Run checks
+    name: Run checks for PHP ${{ matrix.php-version }}
     strategy:
       matrix:
         php-version: ["8.1", "8.2", "8.3", "8.4", "8.5"]
