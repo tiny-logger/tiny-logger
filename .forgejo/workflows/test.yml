@@ -9,7 +9,8 @@ on:
 
 jobs:
   run-checks:
-    runs-on: burn
+    runs-on: podman
+    container: docker.io/library/node:26
     name: Run checks for PHP ${{ matrix.php-version }}
     strategy:
       matrix:
