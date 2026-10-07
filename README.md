@@ -134,60 +134,28 @@ composer require serhii/tiny-logger
 
 #### Build an Image
 
-To build an image, navigate to the root of the project and run this command.
-
-With Podman:
+To build an image, navigate to the root of the project and run this:
 
 ```bash
 podman-compose build
 ```
 
-With Docker:
-
-```bash
-docker compose build
-```
-
 #### Run the Container
-
-With Podman:
 
 ```bash
 podman-compose up -d
 ```
 
-With Docker:
-
-```bash
-docker compose up -d
-```
-
 #### Enter the Container
-
-With Podman:
 
 ```bash
 podman-compose exec app bash
 ```
 
-With Docker:
-
-```bash
-docker compose exec app bash
-```
-
 #### Destroy the Container
 
-You can cleanup after working on a project by destroying things like networks with this command.
-
-With Podman:
+You can cleanup after working on a project by destroying things like networks with this:
 
 ```bash
 podman-compose down
-```
-
-With Docker:
-
-```bash
-docker compose down
 ```
