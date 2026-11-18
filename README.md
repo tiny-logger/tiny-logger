@@ -1,6 +1,7 @@
+[![Tiny Logger](https://github.com/tiny-logger/tiny-logger/actions/workflows/php.yml/badge.svg?branch=master)](https://github.com/tiny-logger/tiny-logger/actions/workflows/php.yml)
 [![Latest Stable Version](https://poser.pugx.org/serhii/tiny-logger/v/stable)](https://packagist.org/packages/serhii/tiny-logger)
 [![Total Downloads](https://poser.pugx.org/serhii/tiny-logger/downloads)](https://packagist.org/packages/serhii/tiny-logger)
-[![License](https://poser.pugx.org/serhii/tiny-logger/license)](https://codeberg.org/tiny-logger/tiny-logger/src/branch/master/LICENSE)
+[![License](https://poser.pugx.org/serhii/tiny-logger/license)](https://packagist.org/packages/serhii/tiny-logger)
 
 Lightweight composer package for file logging with ability to send errors with webhook.
 
