@@ -8,8 +8,7 @@ on:
 
 jobs:
   run-checks:
-    runs-on: podman
-    container: docker.io/library/node:26
+    runs-on: ubuntu-latest
     name: Run checks for PHP ${{ matrix.php-version }}
     strategy:
       matrix:
